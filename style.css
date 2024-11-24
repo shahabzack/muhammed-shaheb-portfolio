@@ -1,0 +1,514 @@
+        /* CSS Variables for Theme Colors */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --primary-color: #000000;
+            --secondary-color: #555555;
+            --card-bg: #f8f8f8;
+        }
+
+        /* Dark Theme Colors */
+        [data-theme="dark"] {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --primary-color: #ffffff;
+            --secondary-color: #aaaaaa;
+            --card-bg: #1a1a1a;
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Section */
+        .about-content {
+            margin-bottom: 2rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+       /* Projects Section */
+/* Projects Section */
+#projects {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.carousel {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.4s ease;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    min-width: calc(25% - 0.75rem); /* Adjusted to fit 4 boxes in a row */
+    text-align: left;
+}
+
+.carousel-arrow {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    opacity: 0.8;
+}
+
+.left-arrow {
+    left: -2rem;
+}
+
+.right-arrow {
+    right: -2rem;
+}
+
+@media (max-width: 768px) {
+    .project-card {
+        min-width: 90%; /* Adjust width for smaller screens */
+    }
+
+    .carousel-arrow {
+        display: none; /* Hide arrows on smaller screens */
+    }
+}
+
+/* Custom Project Container (to handle scrolling) */
+.project-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.project-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+    gap: 1rem;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.project-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Edge, and Safari */
+}
+
+.project-box {
+    flex: 0 0 calc(25% - 1rem); /* Ensures 4 boxes per row */
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: left;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures space between content and the Read More button */
+}
+
+/* Read More Link Styling */
+.read-more {
+    color: var(--primary-color); /* Dynamic for theme mode */
+    font-size: 12px;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: color 0.3s, box-shadow 0.3s;
+    margin-top: auto; /* Pushes the Read More button to the bottom */
+    align-self: flex-end; /* Positions it to the right */
+}
+
+.read-more:hover {
+    color: var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+/* Adjusted Carousel Navigation */
+.arrow-button {
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-arrow {
+    left: -2rem;
+}
+
+.right-arrow {
+    right: -2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project-box {
+        flex: 0 0 90%; /* Adjust project box width for smaller screens */
+    }
+}
+
+        /* Connect Section */
+    /* General Section Styling */
+    #connect {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #f9f9f9;
+    }
+
+    h2 {
+        margin-bottom: 30px;
+        font-size: 2rem;
+        color: #333;
+    }
+
+    /* Full-width Form Styling */
+    .connect-form {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .form-row {
+        width: 100%;
+    }
+
+    .connect-form input,
+    .connect-form textarea {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .connect-form textarea {
+        resize: none;
+    }
+
+    .connect-form button {
+        padding: 15px 30px;
+        background-color: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .connect-form button:hover {
+        background-color: gray;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Black overlay */
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    .modal-content {
+        background-color: white;
+        color: black;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        width: 300px;
+        position: relative;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        color: black;
+    }
+
+    /* Different styles for success or error */
+    .modal-success #modal-message {
+        color: green;
+    }
+
+    .modal-error #modal-message {
+        color: red;
+    }
+
+
+
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: var(--primary-color);
+            margin: 0 1rem;
+            text-decoration: none;
+            font-size: 1.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+
+        .project-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.project-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+    gap: 1rem;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+.project-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Edge, and Safari */
+}
+
+.project-box {
+    flex: 0 0 calc(50% - 0.5rem); /* Show two boxes per row */
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: left;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures space between content and the Read More button */
+}
+
+/* Read More Link Styling */
+.read-more {
+    color: var(--primary-color); /* Dynamic for theme mode */
+    font-size: 12px;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: color 0.3s, box-shadow 0.3s;
+    margin-top: auto; /* Pushes the Read More button to the bottom */
+    align-self: flex-end; /* Positions it to the right */
+}
+
+.read-more:hover {
+    color: var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+}
+
+
+
+.arrow-button {
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-arrow {
+    left: -2rem;
+}
+
+.right-arrow {
+    right: -2rem;
+}
+
+
+
+#connect {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--card-bg);  /* Using card background variable */
+    color: var(--text-color); /* Default text color */
+}
+
+/* Dark Mode Connect Section Style */
+[data-theme="dark"] #connect {
+    background-color: var(--card-bg);  /* Using the dark theme card background */
+    color: var(--text-color);  /* Text color for dark mode */
+}
+
+[data-theme="dark"] #connect input,
+[data-theme="dark"] #connect textarea,
+[data-theme="dark"] #connect button {
+    background-color: var(--primary-color); /* Dark background for input fields */
+    color: var(--bg-color); /* Light text for input fields */
+    border: 1px solid var(--secondary-color); /* Border color for input fields */
+}
+
+[data-theme="dark"] #connect input::placeholder,
+[data-theme="dark"] #connect textarea::placeholder {
+    color: #000000; /* Placeholder color as white in dark mode */
+}
+
+[data-theme="dark"] #connect button {
+    background-color: var(--primary-color); /* Button background color in dark mode */
+    color: var(--bg-color); /* Button text color */
+}
+
+[data-theme="dark"] #connect button:hover {
+    background-color: var(--secondary-color); /* Button hover color */
+}

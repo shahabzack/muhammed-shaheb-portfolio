@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Scientist Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"></div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#connect">Connect</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <div class="about-content">
+                <h1>Hello, I'm Muhammed Shaheb</h1>
+                <p>
+                    "I am a passionate self-learner and data scientist dedicated to solving real-world problems through data. With a strong foundation in Python, SQL, machine learning, deep learning, and statistics, I continuously strive to deepen my knowledge and apply it to hands-on projects. My journey is fueled by a drive to turn complex data into meaningful insights and make impactful decisions. I'm particularly excited by the potential of deep learning to unlock new opportunities and drive innovation. With a growth mindset, I’m always exploring new tools and techniques to stay ahead in the ever-evolving tech landscape. Let’s connect and collaborate to create transformative solutions!"
+                </p>
+
+                <div class="skills-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Machine Learning</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Data Visualization</span>
+                    <span class="skill-tag">Django</span>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/muhammed-shaheb-085859279/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/shah_b.z?igsh=MTE2NDFwNnZpdGVoZg==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/shahabzack" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://yourblog.com" target="_blank"><i class="fas fa-blog"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-container">
+                <div class="project-box">
+                    <h3>House Price Prediction</h3>
+                    <p>Created a machine learning model using Linear Regression to predict house prices based on key features such as location, size, and amenities. The model was successfully deployed using Django, demonstrating my expertise in both machine learning algorithms and web application development for real-world problem solving.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="project-box">
+                    <h3>Django Login & Signup System</h3>
+                    <p>Developed a secure and user-friendly login and signup system using Django. Implemented form validation, authentication, and session management to ensure smooth user experience and security. This project highlights my skills in web development with Django, focusing on authentication and backend logic.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="project-box">
+                    <h3>Ongoing Learning & Development</h3>
+                    <p>Currently enhancing my skills in data science, machine learning, and full-stack web development. Continuously exploring new technologies and techniques to stay up-to-date with industry trends. This project reflects my dedication to self-improvement and my drive to apply newly learned concepts to real-world challenges.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="project-box">
+                    <h3>Project 3</h3>
+                    <p>Description for Project 3</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+             
+            </div>
+        </section>
+        
+        
+
+   
+         
+        
+        
+        <!-- Connect Section -->
+        <section id="connect">
+            <h2>Connect with Me</h2>
+            <form class="connect-form" id="submit-form">
+                <div class="form-row">
+                    <input type="text" id="uname" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-row">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-row">
+                    <textarea id="message" name="message" placeholder="Your Message" rows="7" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        
+            <!-- Modal -->
+            <div id="message-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeModal()">&times;</span>
+                    <p id="modal-message">Form submitted successfully!</p>
+                </div>
+            </div>
+        </section>
+        
+        
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/muhammed-shaheb-085859279/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/shah_b.z?igsh=MTE2NDFwNnZpdGVoZg==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/shahabzack" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://yourblog.com" target="_blank"><i class="fas fa-blog"></i></a>
+    </footer>
+
+    <script>
+
+
+    // Dark Mode Toggle Script
+const themeToggle = document.getElementById('themeToggle');
+const currentTheme = localStorage.getItem('theme');
+
+// Apply the saved theme on page load
+if (currentTheme === 'dark') {
+    document.body.setAttribute('data-theme', 'dark');
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Change icon to sun
+}
+
+// Add event listener for theme toggle
+themeToggle.addEventListener('click', () => {
+    const isDark = document.body.hasAttribute('data-theme');
+    if (isDark) {
+        document.body.removeAttribute('data-theme'); // Switch to light mode
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i>'; // Change icon to moon
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.body.setAttribute('data-theme', 'dark'); // Switch to dark mode
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>'; // Change icon to sun
+        localStorage.setItem('theme', 'dark');
+    }
+});
+// project container reference
+const projectContainer = document.querySelector('.project-container');
+let autoScrollInterval;
+let userInteractionTimeout;
+let cardWidth; // Store card width to avoid recalculation on each scroll
+
+// Function to recalculate card width
+function updateCardWidth() {
+    cardWidth = projectContainer.querySelector('.project-box').offsetWidth + 16; // Include gap
+}
+
+// Function to start auto-scrolling
+function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+        const scrollAmount = projectContainer.scrollLeft;
+        const maxScroll = projectContainer.scrollWidth - projectContainer.offsetWidth;
+
+        if (scrollAmount + cardWidth >= maxScroll) {
+            projectContainer.scrollTo({
+                left: 0,
+                behavior: 'smooth',
+            }); // Reset to start when reaching the end
+        } else {
+            projectContainer.scrollTo({
+                left: scrollAmount + cardWidth,
+                behavior: 'smooth',
+            });
+        }
+    }, 3000); // Scroll every 3 seconds
+}
+
+// Function to stop auto-scrolling
+function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+}
+
+// Function to handle user interaction
+function handleUserInteraction() {
+    stopAutoScroll(); // Stop auto-scroll immediately
+    clearTimeout(userInteractionTimeout); // Clear any existing timeout
+
+    // Resume auto-scroll after 5 seconds of inactivity
+    userInteractionTimeout = setTimeout(() => {
+        startAutoScroll();
+    }, 5000);
+}
+
+// Start auto-scroll on page load
+updateCardWidth(); // Initial card width calculation
+startAutoScroll();
+
+// Pause auto-scroll during user interactions (clicks, scrolls, mouse movement)
+projectContainer.addEventListener('mousedown', handleUserInteraction);
+projectContainer.addEventListener('wheel', handleUserInteraction);
+projectContainer.addEventListener('touchstart', handleUserInteraction); // For touch devices
+projectContainer.addEventListener('touchend', handleUserInteraction); // For touch devices
+
+// Recalculate card width on window resize
+window.addEventListener('resize', updateCardWidth);
+
+</script>
+
+
+<!-- form validation -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Show custom modal
+    function showModal(message, type) {
+        const modal = document.getElementById("message-modal");
+        const modalMessage = document.getElementById("modal-message");
+
+        modalMessage.textContent = message;
+        modal.className = `modal ${type === "success" ? "modal-success" : "modal-error"}`;
+
+        modal.style.display = "flex";
+    }
+
+    // Close the modal
+    function closeModal() {
+        document.getElementById("message-modal").style.display = "none";
+    }
+
+    // Validate the form
+    function validate() {
+        const uname = document.getElementById("uname").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (uname === "" || message === "") {
+            showModal("Fields should not be blank!", "error");
+            return false;
+        } else if (message.length < 5) {
+            showModal("Message is too short!", "error");
+            return false;
+        }
+        return true;
+    }
+
+    // Form submission handler
+    $("#submit-form").submit((e) => {
+        e.preventDefault();
+        if (validate()) {
+            $.ajax({
+                url: "https://script.google.com/macros/s/AKfycbz_9R29kSh8aEmyC4wlk2CSLfcvsI5y_GalldDJibYbPRH-TFl12ymXJTXxoBaLxmJMmw/exec",
+                data: $("#submit-form").serialize(),
+                method: "post",
+                success: function () {
+                    showModal("Form submitted successfully!", "success");
+                    setTimeout(() => {
+                        closeModal();
+                        window.location.reload();
+                    }, 3000);
+                },
+                error: function (err) {
+                    console.error(err);
+                    showModal("Something went wrong. Please try again!", "error");
+                }
+            });
+        }
+    });
+</script>
+
+
+</body>
+</html>
