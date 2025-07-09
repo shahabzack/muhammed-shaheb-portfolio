@@ -739,3 +739,39 @@ footer {
     scroll-snap-align: start;
 }
 
+/* Learning Counter Styles */
+.learning-counter {
+    max-width: 1200px;
+    margin: 0.5rem auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: var(--card-bg);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.learning-counter:hover {
+    transform: translateY(-2px);
+}
+
+.counter-icon,
+.learning-counter span {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--primary-color) !important;
+    transition: color 0.3s ease;
+}
+
+.learning-counter span.updated {
+    transform: scale(1.1);
+}
+.learning-counter strong {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}

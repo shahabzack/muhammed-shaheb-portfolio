@@ -221,6 +221,20 @@
               <a href="https://www.instagram.com/shah_b.z?igsh=MTE2NDFwNnZpdGVoZg==" target="_blank"><i class="fab fa-instagram"></i></a>
               <a href="https://github.com/shahabzack" target="_blank"><i class="fab fa-github"></i></a>
               <a href="https://www.kaggle.com/muhammedshaheb" target="_blank"><i class="fab fa-kaggle"></i></a>
+              
+        </div>
+         <!-- Learning Counter -->
+        <div class="learning-counter" aria-live="polite">
+            <strong>Data Science Journey Started:</strong>
+            <i class="fas fa-hourglass-start counter-icon" aria-hidden="true"></i>
+            <span id="days" aria-label="Days since started">0</span>d
+            <span id="hours" aria-label="Hours since started">0</span>h
+            <span id="minutes" aria-label="Minutes since started">0</span>m
+            <span id="seconds" aria-label="Seconds since started">0</span>s
+            <noscript>Counter requires JavaScript.</noscript>
+        </div>
+
+              
     </footer>
 
     <script>
@@ -308,6 +322,34 @@ projectContainer.addEventListener('touchend', handleUserInteraction); // For tou
 
 // Recalculate card width on window resize
 window.addEventListener('resize', updateCardWidth);
+
+// Learning Counter Script
+    function updateLearningCounter() {
+        const startDate = new Date('2024-07-01T00:00:00'); 
+        const now = new Date();
+        const timeDiff = now - startDate;
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+
+        ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
+            const element = document.getElementById(id);
+            element.classList.add('updated');
+            setTimeout(() => element.classList.remove('updated'), 300);
+        });
+    }
+
+    updateLearningCounter();
+    setInterval(updateLearningCounter, 1000);
+
+
 
 </script>
 
